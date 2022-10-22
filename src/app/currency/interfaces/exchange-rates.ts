@@ -6,8 +6,3 @@ export interface IExchangeRatesResponse {
 export interface IStringNumberPair {
   [key: string]: number
 }
-
-export interface ICurrencyRate {
-  currency: string, 
-  rate: number
-}

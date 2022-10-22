@@ -1,0 +1,72 @@
+.currency-select {
+  position: relative;
+  width: 72px;
+  height: 48px;
+  margin: 0 12px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+  color: #282828;
+
+  &_toggler {
+    button {
+      position: relative;
+      width: 100%;
+      padding-left: 4px;
+      text-align: start;
+      color: #282828;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        width: 8px;
+        height: 8px;
+        border: 2px solid #282828;
+        border-top: 2px solid #fafafa;
+        border-right: 2px solid #fafafa;
+        transform: rotate(-45deg);
+        transition: all .5s;
+      }
+      
+      &.active::before {
+        top: 6px;
+        transform: rotate(-225deg);
+      }
+    }
+  }
+
+  &_menu {
+    position: absolute;
+    top: 48px;
+    width: 72px;
+    height: 192px;
+    list-style: none;
+    overflow-y: scroll;
+    box-shadow: 0 0 4px #afafaf, 0 0 4px rgba(#afafaf, .5), 0 0 8px rgba(#afafaf, .25);
+
+    &_option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 8px;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(#50af50, .25);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .currency-select {
+    &_menu {
+      height: 128px;
+    }
+  }
+}
+

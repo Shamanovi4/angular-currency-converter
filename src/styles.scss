@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+@import 'material-icons/iconfont/material-icons.css';
+
+*,
+*::before,
+*::after {
+	margin: 0;
+  padding: 0;
+	border: 0;
+	outline: none;
+  box-sizing: border-box;
+	text-decoration: none;
+	background: transparent;
+}
+
+body {
+	line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

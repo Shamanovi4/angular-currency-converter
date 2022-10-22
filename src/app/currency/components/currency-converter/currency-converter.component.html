@@ -1,0 +1,52 @@
+<section class='currency-converter'>
+  <div class='currency-converter_wrapper'>
+    <form class='currency-converter_form'>
+      <div class='currency-converter_form_item'>
+        <div class='currency-converter_form_item_input'>
+          <input
+            name='fromAmountInput' 
+            type='number'
+            required='required'
+            placeholder=' '
+            [(ngModel)]='fromAmount' 
+            [value]='fromAmount' 
+            (ngModelChange)='convertFromCurrencyHandler(fromCurrency)'
+          >
+          <span>Amount</span>
+        </div>
+        <app-currency-select
+          (convertCurrency)='convertFromCurrencyHandler($event)'
+          [currency]='fromCurrency'
+          [currencyRates]='currencyRates'
+        ></app-currency-select>
+        <span class='fi fi-{{fromCurrency.slice(0, -1).toLowerCase()}}'></span>
+      </div>
+      <button class='currency-converter_form_button' 
+        type='button' 
+        (click)='swapHandler()' 
+        event>
+        <span class='material-icons'>compare_arrows</span>
+      </button>
+      <div class='currency-converter_form_item'>
+        <div class='currency-converter_form_item_input'>
+          <input
+            name='toAmountInput' 
+            type='number'
+            required='required'
+            placeholder=' '
+            [(ngModel)]='toAmount' 
+            [value]='toAmount' 
+            (ngModelChange)='convertToCurrencyHandler(toCurrency)'
+          >
+          <span>Amount</span>
+        </div>
+        <app-currency-select
+          (convertCurrency)='convertToCurrencyHandler($event)'
+          [currency]='toCurrency'
+          [currencyRates]='currencyRates'
+        ></app-currency-select>
+        <span class='fi fi-{{toCurrency.slice(0, -1).toLowerCase()}}'></span>
+      </div>
+    </form>
+  </div>
+</section>

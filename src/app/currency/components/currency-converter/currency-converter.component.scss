@@ -1,0 +1,134 @@
+.currency-converter {
+	margin-top: 80px;
+
+	&_wrapper {
+		padding: 40px;
+	}
+
+  &_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &_input {
+        position: relative;
+        width: 160px;
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+
+        input {
+          width: 100%;
+          height: 48px;
+          padding: 12px;
+          border: 1px solid #afafaf;
+          color: #282828;
+          border-radius: 8px;
+          transition: all .25s;
+
+          &:not(:placeholder-shown) ~ span,
+          &:focus ~ span {
+            font-size: 14px;
+            padding: 0 12px;
+            color: #50af50;
+            transform: translateX(24px) translateY(-12px);
+            border-left: 1px solid #50af50;
+            border-right: 1px solid #50af50;
+            background-color: #fafafa;
+          }
+
+          &:not(:placeholder-shown),
+          &:focus {
+            border: 1px solid #50af50;
+          }
+        }
+
+        span {
+          position: absolute;
+          left: 0;
+          padding: 12px;
+          color: #afafaf;
+          pointer-events: none;
+          transition: all .25s;
+        }
+      }
+
+      .fi {
+        font-size: 20px;
+      }
+    }
+  
+    &_button {
+      width: 48px;
+      height: 48px;
+      margin: 0 40px;
+      padding: 12px;
+      border: 1px solid transparent;
+      box-shadow: 0 0 4px #afafaf, 0 0 4px rgba(#afafaf, .5), 0 0 8px rgba(#afafaf, .25);
+      background-color: #fff;
+      color: #afafaf;
+      border-radius: 8px;
+      transition: all .25s;
+
+      &:hover {
+        border: 1px solid #50af50;
+        color:#50af50;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .currency-converter {
+    &_form {
+      flex-direction: column;
+
+      &_button {
+        margin: 40px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+	.section {
+    margin-top: 40px;
+    
+		&_wrapper {
+			padding: 20px;
+		}
+	}
+}
+
+@media (max-width: 414px) {
+  .section {
+    border-radius: 12px;
+
+    &_wrapper {
+			padding: 12px;
+		}
+  }
+}
+
+@media (max-width: 320px) {
+  .section {
+    border-radius: 8px;
+
+    &_wrapper {
+			padding: 8px;
+		}
+  }
+}

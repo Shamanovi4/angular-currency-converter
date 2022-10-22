@@ -1,0 +1,41 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+	header {
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+
+  main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
+.page {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+  min-height: 100vh;
+	padding-bottom: 80px;
+	background: #fafafa;
+
+	&Wrapper {
+		width: 100%;
+		max-width: 992px;
+		padding: 0 20px;
+	}
+}
+
+@media (max-width: 576px) {
+	.page {
+    padding-bottom: 40px;
+	}
+}

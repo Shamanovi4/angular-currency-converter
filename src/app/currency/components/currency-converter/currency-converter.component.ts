@@ -1,5 +1,5 @@
 import {Component} from '@angular/core'
-import {IExchangeRatesResponse} from '../../interfaces/exchange-rates'
+import {IStringNumberPair} from '../../interfaces/exchange-rates'
 import {ExchangeRatesApiService} from '../../services/exchange-rates-api.service'
 
 @Component({
@@ -13,8 +13,7 @@ export class CurrencyConverterComponent {
   toAmount: number
   fromCurrency: string = 'USD'
   toCurrency: string = 'UAH'
-  currencyRates: {}
-  exchangeRatesResponse: IExchangeRatesResponse
+  currencyRates: IStringNumberPair
   isFromMenuOpened: boolean = false
   isToMenuOpened: boolean = false
 
@@ -24,21 +23,20 @@ export class CurrencyConverterComponent {
 
   ngOnInit() {
     this.exchangeRatesApiService.getExchangeRates().subscribe(exchangeRatesResponse => {
-      this.exchangeRatesResponse = exchangeRatesResponse
-      this.currencyRates = this.exchangeRatesResponse.rates
+      this.currencyRates = exchangeRatesResponse.rates
     })
   }
 
   convertFromCurrencyHandler(currency: string) {
     this.fromCurrency = currency
-    this.toAmount = +(this.exchangeRatesResponse.rates[this.toCurrency] 
-        * this.fromAmount / this.exchangeRatesResponse.rates[currency]).toFixed(2)
+    this.toAmount = +(this.currencyRates[this.toCurrency] 
+        * this.fromAmount / this.currencyRates[currency]).toFixed(2)
   }
 
   convertToCurrencyHandler(currency: string) {
     this.toCurrency = currency
-    this.fromAmount = +(this.exchangeRatesResponse.rates[this.fromCurrency] 
-        * this.toAmount / this.exchangeRatesResponse.rates[currency]).toFixed(2)
+    this.fromAmount = +(this.currencyRates[this.fromCurrency] 
+        * this.toAmount / this.currencyRates[currency]).toFixed(2)
   }
 
   swapHandler() {

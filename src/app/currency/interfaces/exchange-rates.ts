@@ -1,5 +1,5 @@
 export interface IExchangeRatesResponse {
-  base: string,
+  base: string
   rates: IStringNumberPair
 }
 

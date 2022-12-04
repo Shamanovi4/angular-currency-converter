@@ -1,19 +1,15 @@
-<div class='currency-select' 
-  appClickedOutside (clickedOutside)='clickedOutsideHandler()'
->
+<div class='currency-select' appClickedOutside
+  (clickedOutside)='clickedOutsideHandler()'>
   <div class='currency-select_toggler'>
-    <button 
-    (click)='toggleMenuHandler()'
-      [ngClass]='isMenuOpened ? "active" : ""'
-    >
+    <button (click)='toggleMenuHandler()'
+      [ngClass]='isMenuOpened ? "active" : ""'>
       {{currency}}
     </button>
   </div>
   <ul class='currency-select_menu' *ngIf='isMenuOpened'>
     <li class='currency-select_menu_option'
       *ngFor='let item of currencyRates | keyvalue'
-      (click)='selectOption(item.key)'
-    >
+      (click)='selectOption(item.key)'>
       {{item.key}}
     </li>
   </ul>

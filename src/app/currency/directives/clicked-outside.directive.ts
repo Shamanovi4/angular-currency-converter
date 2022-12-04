@@ -1,9 +1,14 @@
-import {Directive, ElementRef, EventEmitter, HostListener, Output} from '@angular/core'
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Output,
+} from '@angular/core'
 
 @Directive({
-  selector: '[appClickedOutside]'
+  selector: '[appClickedOutside]',
 })
-
 export class ClickedOutsideDirective {
   constructor(private element: ElementRef) {}
 
